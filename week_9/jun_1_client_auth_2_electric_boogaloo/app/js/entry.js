@@ -14,6 +14,11 @@ demoApp.config(['$routeProvider', function($rp) {
     })
     // AUTH_EXP: how do the signin/up routes differ and what is their relationship
     // with one another
+
+    // Both routes are loading the same template 'auth_view', but using different controllers - SignUp or Signin Controller.
+    // The information displayed in the template will change depending on which route/controllers is being used.  For example, the /signup route has a password confirmation input, where the /signin route does not.
+    // Since they are both using controllerAs 'authctrl', we are able to use the same form models with authctrl.user.username and user.password, but they will follow their own controllers logic.
+
     .when('/signup', {
       templateUrl: 'templates/auth/views/auth_view.html',
       controller: 'SignUpController',
